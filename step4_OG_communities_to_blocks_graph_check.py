@@ -28,10 +28,11 @@ parser.add_argument("-c", "--chrom_data",
                     required = True)
 parser.add_argument("-l", "--min_len",
                     help = "minimum number of ortholog occurences (e.g. 3 paralogs, or 3 orthologs) two scaffold should share to be considered in the same multi_species_block",
-                    default = 3)
+                    default = 3,
+                   type = int)
 parser.add_argument("-s", "--min_shared",
                     help = "minimum overlap coefficient of ortholog occurences two scaffold should share to be considered in the same multi_species_block",
-                    default = .5,
+                    default = 0.5,
                     type = float)
 parser.add_argument("-k", "--clique_size",
                     help = "how many blocks a multi species block should have to be retained (use to percolate k cliques of extant blocks). Default is k = 3",
@@ -39,7 +40,7 @@ parser.add_argument("-k", "--clique_size",
                     type = int)
 parser.add_argument("-r", "--min_community_coverage",
                     help = "percentage of orthogroups of the original OG community a block should posess, default is .3, i.e. 30 percent",
-                    default = .3,
+                    default = 0.3,
                     type = float)
 parser.add_argument("-m", "--chrom_clustering_method",
                     help = "Scaffold are grouped together to verify that they are homologs. Clique checking step of the synphoni algorithm.",
